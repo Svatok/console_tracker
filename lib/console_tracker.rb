@@ -7,6 +7,8 @@ require('console_tracker/configure')
 module ConsoleTracker
   class << self
     def start
+      return unless defined?(Rails::Console)
+
       result = ConsoleTracker::AUTHENTICATORS[config.client].call
       if result.success?
         puts('You have successfully logged in.')
