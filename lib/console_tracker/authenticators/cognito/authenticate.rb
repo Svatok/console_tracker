@@ -7,8 +7,7 @@ require('console_tracker/authenticators/cognito')
 module ConsoleTracker
   module Authenticators
     module Cognito
-      class SignIn < Trailblazer::Operation
-        step :username
+      class Authenticate < Trailblazer::Operation
         step :client
 
         step Rescue(StandardError, handler: :handle_exception!) {
@@ -17,12 +16,8 @@ module ConsoleTracker
           step :change_temporary_password
         }
 
-        def username(ctx, **)
-          ctx[:username] = STDIN.getpass('Username:')
-        end
-
-        def client(ctx, username:, **)
-          ctx[:client] = CognitoAuthenticator.new(username)
+        def client(ctx, **)
+          ctx[:client] = CognitoAuthenticator.new
         end
 
         def authenticate(ctx, client:, **)

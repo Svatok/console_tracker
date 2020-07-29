@@ -7,8 +7,8 @@ module ConsoleTracker
     class CognitoAuthenticator
       attr_reader :username, :client_settings
 
-      def initialize(username)
-        @username = username
+      def initialize
+        @username = ConsoleTracker.user.name
         @client_settings = ConsoleTracker.config.client_settings
       end
 
