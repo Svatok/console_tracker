@@ -20,3 +20,27 @@ Metrics/BlockLength:
   Exclude:
     - spec/*
     - spec/**/*spec.rb
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/ConstantVisibility:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'Gemfile'
+    - 'console_tracker.gemspec'
+    - 'Rakefile'
+    - 'bin/*'
+    - 'spec/*'

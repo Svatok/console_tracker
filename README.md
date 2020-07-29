@@ -22,7 +22,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create file `config/initializers/console_tracker.rb`
+
+### AWS Cognito
+
+```ruby
+ConsoleTracker.configure do |config|
+  config.client = :cognito
+  config.client_settings = {
+    region: ENV['region'],
+    access_key_id: ENV['access_key_id'],
+    secret_access_key: ENV['secret_access_key'],
+    client_id: ENV['client_id']
+  }
+end
+
+ConsoleTracker.start
+```
 
 ## Development
 
