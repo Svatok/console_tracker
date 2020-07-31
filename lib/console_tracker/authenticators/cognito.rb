@@ -39,9 +39,7 @@ module ConsoleTracker
 
       def client
         @client ||= Aws::CognitoIdentityProvider::Client.new(
-          region: authenticator_settings[:region],
-          access_key_id: authenticator_settings[:access_key_id],
-          secret_access_key: authenticator_settings[:secret_access_key]
+          region: authenticator_settings[:region]
         )
       end
 
