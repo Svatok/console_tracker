@@ -5,11 +5,11 @@ require('aws-sdk-cognitoidentityprovider')
 module ConsoleTracker
   module Authenticators
     class CognitoAuthenticator
-      attr_reader :username, :client_settings
+      attr_reader :username, :authenticator_settings
 
-      def initialize(username)
-        @username = username
-        @client_settings = ConsoleTracker.config.client_settings
+      def initialize
+        @username = ConsoleTracker.user.name
+        @authenticator_settings = ConsoleTracker.config.authenticator_settings
       end
 
       def authenticate(password)
@@ -39,14 +39,14 @@ module ConsoleTracker
 
       def client
         @client ||= Aws::CognitoIdentityProvider::Client.new(
-          region: client_settings[:region],
-          access_key_id: client_settings[:access_key_id],
-          secret_access_key: client_settings[:secret_access_key]
+          region: authenticator_settings[:region],
+          access_key_id: authenticator_settings[:access_key_id],
+          secret_access_key: authenticator_settings[:secret_access_key]
         )
       end
 
       def client_id
-        @client_id ||= client_settings[:client_id]
+        @client_id ||= authenticator_settings[:client_id]
       end
     end
   end

@@ -12,6 +12,6 @@ module ConsoleTracker
   end
 
   class Config
-    attr_accessor :client, :client_settings
+    attr_accessor :authenticator, :authenticator_settings, :logger, :logger_settings
   end
 end

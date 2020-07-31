@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require('console_tracker/authenticators/cognito/sign_in')
+require('console_tracker/authenticators/cognito/authenticate')
 
 module ConsoleTracker
   AUTHENTICATORS = {
-    cognito: Authenticators::Cognito::SignIn
+    cognito: Authenticators::Cognito::Authenticate
   }.freeze
 end

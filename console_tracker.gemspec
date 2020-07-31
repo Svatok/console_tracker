@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency('aws-sdk-cognitoidentityprovider', '~> 1.42.0')
+  spec.add_dependency('slack-ruby-client', '~> 0.14.6')
   spec.add_dependency('trailblazer-macro', '~> 2.1.3')
   spec.add_dependency('trailblazer-operation', '~> 0.6.2')
 
