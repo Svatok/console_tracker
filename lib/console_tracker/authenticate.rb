@@ -18,7 +18,7 @@ module ConsoleTracker
     end
 
     def authenticate_operation(_ctx, **)
-      ConsoleTracker::AUTHENTICATORS[ConsoleTracker.config.client]
+      ConsoleTracker::AUTHENTICATORS[ConsoleTracker.config.authenticator]
     end
 
     def close_console(_ctx, error:, **)
