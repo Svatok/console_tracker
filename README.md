@@ -30,9 +30,7 @@ Create file `config/initializers/console_tracker.rb`
 ConsoleTracker.configure do |config|
   config.client = :cognito
   config.client_settings = {
-    region: ENV['region'],
-    access_key_id: ENV['access_key_id'],
-    secret_access_key: ENV['secret_access_key'],
+    region: ENV['region']
     client_id: ENV['client_id']
   }
 end
