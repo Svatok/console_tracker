@@ -1,8 +1,6 @@
 # ConsoleTracker
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/console_tracker`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+`console_tracker` is tool for authentication users in console and tracking the commands they enter.
 
 ## Installation
 
@@ -22,37 +20,50 @@ Or install it yourself as:
 
 ## Usage
 
-Create file `config/initializers/console_tracker.rb`
+### Spring
 
-### AWS Cognito
+`console_tracker` will not work with `Spring`. You must not install Spring on environment where you will use 
+`console_tracker`. To prevent it from being installed, provide the `--without development test` argument to the `bundle install` command which is used to install gems:
+
+```bash
+$ bundle install --without development test
+```
+
+### Example of configuration with AWS Cognito authenticator and Slack logger
+
+#### Step 1
+
+Create file `config/initializers/console_tracker.rb`
 
 ```ruby
 ConsoleTracker.configure do |config|
   config.client = :cognito
   config.client_settings = {
     region: ENV['region'],
-    client_id: ENV['client_id']
+    client_id: ENV['client_id'],
+    access_key_id: ENV['AWS_KEY_ID'],
+    secret_access_key: ENV['AWS_ACCESS_KEY']
   }
 end
 
 ConsoleTracker.start
 ```
 
-## Development
+#### Step 2
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Create user in https://aws.amazon.com/cognito/
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+![Screenshot from 2020-10-30 09-12-37](https://user-images.githubusercontent.com/18479771/97674468-416cd480-1a96-11eb-95c7-fd51912dbc4a.png)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/console_tracker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/console_tracker/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/Svatok/console_tracker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/Svatok/console_tracker/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
 
-## Code of Conduct
+## Code of Conduct	
 
-Everyone interacting in the ConsoleTracker project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/console_tracker/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ConsoleTracker project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Svatok/console_tracker/blob/master/CODE_OF_CONDUCT.md).

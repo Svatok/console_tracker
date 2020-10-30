@@ -5,6 +5,7 @@ require('console_tracker/configure')
 require('console_tracker/user')
 require('console_tracker/authenticate')
 require('console_tracker/connect')
+require('io/console')
 
 module ConsoleTracker
   class << self
