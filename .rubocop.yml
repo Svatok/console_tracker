@@ -1,0 +1,46 @@
+AllCops:
+  TargetRubyVersion: 2.6.2
+  EnabledByDefault: true
+
+Metrics/LineLength:
+  Max: 120
+
+Style/SignalException:
+  Enabled: false
+Lint/UnreachableCode:
+  Description: 'Unreachable code.'
+  Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/*
+    - spec/**/*spec.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/*
+    - spec/**/*spec.rb
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/ConstantVisibility:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'Gemfile'
+    - 'console_tracker.gemspec'
+    - 'Rakefile'
+    - 'bin/*'
+    - 'spec/*'

@@ -1,6 +1,19 @@
-require "console_tracker/version"
+# frozen_string_literal: true
+
+require('console_tracker/version')
+require('console_tracker/configure')
+require('console_tracker/user')
+require('console_tracker/authenticate')
+require('console_tracker/connect')
+require('io/console')
 
 module ConsoleTracker
-  class Error < StandardError; end
-  # Your code goes here...
+  class << self
+    def start
+      return unless defined?(Rails::Console)
+
+      ConsoleTracker::Authenticate.call
+      ConsoleTracker.connect
+    end
+  end
 end
