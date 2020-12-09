@@ -27,8 +27,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency('aws-sdk-cognitoidentityprovider', '~> 1.26')
   spec.add_dependency('slack-ruby-client', '~> 0.14')
-  spec.add_dependency('trailblazer-macro', ['>= 2.1.0.rc1', '< 2.2'])
-  spec.add_dependency('trailblazer-operation', '~> 0.4')
+  spec.add_dependency('trailblazer-macro', ['>= 2.1.0', '< 2.2'])
+  spec.add_dependency('trailblazer-operation', '~> 0.6')
 
   spec.add_development_dependency('rake', '~> 13.0')
   spec.add_development_dependency('rspec', '~> 3.9')
