@@ -12,7 +12,7 @@ module ConsoleTracker
 
         step Rescue(StandardError, handler: :handle_exception!) {
           step :authenticate
-          step :change_temporary_password?, Output(:failure) => 'End.success'
+          step :change_temporary_password?, Output(:failure) => End(:success)
           step :change_temporary_password
         }
 
